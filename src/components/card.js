@@ -56,18 +56,16 @@ const cardAppender = (selector) => {
     .then(resp => {
       const selectedItem = document.querySelector(selector);
       // console.log(resp.data.articles.javascript[0]); // returns an object with the article info
-      const keys = Object.keys(resp.data.articles);
-      // console.log(keys[1]); // logs the key for an article object
-      // console.log(resp.data.articles[keys[0]]); // logs an array of articles objects
-      for (let i = 0; i < keys.length; i++) {
-        const articleArray = resp.data.articles[keys[i]];
-        // console.log(resp.data.articles[keys[i]]); //logs an array of articles each loop
-        // console.log(articleArray); // also logs an array of articles each loop
-        // console.log(resp.data.articles[keys[0]][articleArray[0]]); // I was overcomplicating it
+      const values = Object.values(resp.data.articles);
+      // console.log(Object.values(resp.data.articles));
+      for (let i = 0; i < values.length; i++) {
+        const articleArray = values[i];
+        // console.log(articleArray); // logs an array of article objects each loop
         // console.log(articleArray[0]); // logs the first article in each array of articles
-        for (let j = 0; j < articleArray; j++) {
+        for (let j = 0; j < articleArray.length; j++) {
           const newArticle = Card(articleArray[j]);
-          console.log(newArticle);
+          // console.log(articleArray[j]);
+          // console.log(newArticle);
           // console.log(Card(articleArray[0]));
           // console.log(resp.data.articles[keys[i]][articleArray[j]]); // was using this for testing
           selectedItem.appendChild(newArticle);
