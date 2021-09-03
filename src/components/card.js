@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +19,28 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  const cardDiv = document.createElement('div');
+  const headlineDiv = document.createElement('div');
+  const authorDiv = document.createElement('div');
+  const imgDiv = document.createElement('div');
+  const authorImg = document.createElement('img');
+  const authorSpan = document.createElement('span');
+  cardDiv.classList.add('card');
+  headlineDiv.classList.add('headline');
+  authorDiv.classList.add('author');
+  imgDiv.classList.add('img-container');
+  headlineDiv.textContent = article.headline;
+  authorImg.src = article.authorPhoto;
+  authorSpan.textContent = `By ${article.authorName}`;
+  cardDiv.appendChild(headlineDiv);
+  cardDiv.appendChild(authorDiv);
+  authorDiv.appendChild(imgDiv);
+  imgDiv.appendChild(authorImg);
+  authorDiv.appendChild(authorSpan);
+  cardDiv.addEventListener('click', () => {
+    console.log(article.headline);
+  })
+  return cardDiv;
 }
 
 const cardAppender = (selector) => {
@@ -28,6 +52,31 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+  axios.get(`http://localhost:5000/api/articles`)
+    .then(resp => {
+      const selectedItem = document.querySelector(selector);
+      // console.log(resp.data.articles.javascript[0]); // returns an object with the article info
+      const keys = Object.keys(resp.data.articles);
+      // console.log(keys[1]); // logs the key for an article object
+      // console.log(resp.data.articles[keys[0]]); // logs an array of articles objects
+      for (let i = 0; i < keys.length; i++) {
+        const articleArray = resp.data.articles[keys[i]];
+        // console.log(resp.data.articles[keys[i]]); //logs an array of articles each loop
+        // console.log(articleArray); // also logs an array of articles each loop
+        // console.log(resp.data.articles[keys[0]][articleArray[0]]); // I was overcomplicating it
+        // console.log(articleArray[0]); // logs the first article in each array of articles
+        for (let j = 0; j < articleArray; j++) {
+          const newArticle = Card(articleArray[j]);
+          console.log(newArticle);
+          // console.log(Card(articleArray[0]));
+          // console.log(resp.data.articles[keys[i]][articleArray[j]]); // was using this for testing
+          selectedItem.appendChild(newArticle);
+        }
+      }
+    })
+    .catch(err => {
+      console.log(`The cardAppender error is: ${err}`);
+    })
 }
 
 export { Card, cardAppender }
