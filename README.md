@@ -29,7 +29,7 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 [Lambda Times](https://tk-assets.lambdaschool.com/cac4803c-6e8f-4846-be0e-b20d82a34a73_lambda-times.png)
 
 ### Instructions
-
+setting up codegrade
 - [ ] Navigate to the root of the project with your command line.
 - [ ] Run `npm install` to download the dependencies listed in the `package.json` file.
 - [ ] Run `npm start` to compile the project and serve it.
