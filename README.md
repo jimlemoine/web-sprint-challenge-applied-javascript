@@ -38,9 +38,9 @@ setting up codegrade
 
 **Steps Required for MVP:**
 
-- [ ] Steps 1 and 2 are explained inside the `src/components/header.js` file.
-- [ ] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
-- [ ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
+- [X] Steps 1 and 2 are explained inside the `src/components/header.js` file.
+- [X] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
+- [X] Steps 5 and 6 are explained inside the `src/components/card.js` file.
 
 **Important Notes:**
 
@@ -64,8 +64,8 @@ setting up codegrade
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. What is the DOM?
-2. What is an event?
-3. What is an event listener?
-4. Why would we convert a NodeList into an Array?
-5. What is a component?
+1. What is the DOM? The DOM is the document object model and is the browser's interpretation of what will be displayed on the page, it includes the HTML, CSS, and JavaScript
+2. What is an event? An event is any user interaction with the page, including things like mouse clicks, mouse movements, scrolling, and key presses
+3. What is an event listener? An event listener is an instruction we give to the program to monitor a DOM object for an event and then we give a callback function to the event listener with instructions for something to happen when the event fires
+4. Why would we convert a NodeList into an Array? We might want to convert a NodeList to an Array so that we can use array methods like .map .filter or .reduce
+5. What is a component? A component is a combination of HTML, CSS, and JavaScript that we can reuse to save ourselves time, they can be part of a larger whole but can stand alone as functional code
